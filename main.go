@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/michaelyang12/shortcuts/middleware"
 )
 
 func main() {
@@ -20,5 +22,5 @@ func main() {
 	})
 
 	log.Printf("listening on :%s", port)
-	log.Fatal(http.ListenAndServe(":"+port, mux))
+	log.Fatal(http.ListenAndServe(":"+port, middleware.Auth(mux)))
 }
