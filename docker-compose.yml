@@ -1,0 +1,7 @@
+services:
+  shortcuts:
+    build: .
+    ports:
+      - "${SHORTCUTS_PORT:-8080}:${SHORTCUTS_PORT:-8080}"
+    env_file: .env
+    restart: unless-stopped
