@@ -93,4 +93,11 @@ curl -s -X POST http://localhost:8080/video \
   -d '{"url": "https://www.youtube.com/watch?v=...", "prompt": "Summarize this video"}'
 ```
 
+```bash
+http -b POST :8080/video \
+  "Authorization:Bearer $SHORTCUTS_API_KEY" \
+  url="https://www.tiktok.com/@thatrecipe.us/video/7609066270650027295" \
+  prompt="Extract the recipe for this video into organized md format"
+```
+
 Downloads the video with yt-dlp, extracts 6 evenly-spaced frames with ffmpeg, and sends them to Claude for analysis. Supports any URL that yt-dlp supports (YouTube, TikTok, etc.).
